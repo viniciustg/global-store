@@ -39,3 +39,5 @@ TestResults/
 # Others
 *.db
 *.sqlite
+
+**/publish/

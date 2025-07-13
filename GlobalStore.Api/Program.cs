@@ -28,16 +28,8 @@ builder.Services
 
 var isDevelopment = builder.Environment.IsDevelopment();
 
-if (isDevelopment)
-{
-    builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseInMemoryDatabase("StoreDb"));
-}
-else
-{
-    builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-}
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
@@ -66,8 +58,6 @@ if (!isDevelopment)
     catch (Exception ex)
     {
         logger.LogError(ex, "An error occurred while applying database migrations.");
-        // Opcional: você pode encerrar o app se a migração for essencial
-        // throw;
     }
 }
 

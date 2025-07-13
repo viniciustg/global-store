@@ -16,7 +16,7 @@ namespace GlobalStore.Functions.Functions
         }
 
         [Function("GetProductsList")]
-        public async Task<HttpResponseData> GetProductsList([HttpTrigger(AuthorizationLevel.Function, "get", Route = "products")] HttpRequestData req)
+        public async Task<HttpResponseData> GetProductsList([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "products")] HttpRequestData req)
         {
             var json = await _service.GetProductsJsonAsync();
             var products = System.Text.Json.JsonSerializer.Deserialize<List<Product>>(json);
@@ -28,7 +28,7 @@ namespace GlobalStore.Functions.Functions
         }
 
         [Function("GetProductById")]
-        public async Task<HttpResponseData> GetById([HttpTrigger(AuthorizationLevel.Function, "get", Route = "products/{id:int}")] HttpRequestData req, int id)
+        public async Task<HttpResponseData> GetById([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "products/{id:int}")] HttpRequestData req, int id)
         {
             var product = await _service.GetByIdAsync(id);
             var response = req.CreateResponse();
@@ -44,7 +44,7 @@ namespace GlobalStore.Functions.Functions
         }
 
         [Function("CreateProduct")]
-        public async Task<HttpResponseData> Create([HttpTrigger(AuthorizationLevel.Function, "post", Route = "products")] HttpRequestData req)
+        public async Task<HttpResponseData> Create([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "products")] HttpRequestData req)
         {
             var product = await req.ReadFromJsonAsync<Product>();
             await _service.CreateAsync(product!);
@@ -54,7 +54,7 @@ namespace GlobalStore.Functions.Functions
         }
 
         [Function("UpdateProduct")]
-        public async Task<HttpResponseData> Update([HttpTrigger(AuthorizationLevel.Function, "put", Route = "products/{id:int}")] HttpRequestData req, int id)
+        public async Task<HttpResponseData> Update([HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "products/{id:int}")] HttpRequestData req, int id)
         {
             var product = await req.ReadFromJsonAsync<Product>();
             product!.Id = id;
@@ -66,7 +66,7 @@ namespace GlobalStore.Functions.Functions
         }
 
         [Function("DeleteProduct")]
-        public async Task<HttpResponseData> Delete([HttpTrigger(AuthorizationLevel.Function, "delete", Route = "products/{id:int}")] HttpRequestData req, int id)
+        public async Task<HttpResponseData> Delete([HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "products/{id:int}")] HttpRequestData req, int id)
         {
             await _service.DeleteAsync(id);
             var response = req.CreateResponse(HttpStatusCode.NoContent);

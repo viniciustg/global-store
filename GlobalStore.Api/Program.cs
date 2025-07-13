@@ -23,12 +23,6 @@ builder.Services.AddSwaggerGen(opt =>
 
 builder.Services.AddOpenApi();
 
-//builder.Services.AddDbContext<AppDbContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseInMemoryDatabase("StoreDb"));
-
 builder.Services
     .AddApplicationServices()
     .AddRepositories();
@@ -44,6 +38,14 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Store Management API v1");
         c.RoutePrefix = string.Empty;
     });
+
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseInMemoryDatabase("StoreDb"));
+}
+else
+{
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 }
 
 app.UseHttpsRedirection();

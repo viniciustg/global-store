@@ -52,4 +52,23 @@ app.UseSwaggerUI(c =>
 app.UseAuthorization();
 app.MapControllers();
 
+if (!isDevelopment)
+{
+    using var scope = app.Services.CreateScope();
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+    try
+    {
+        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        logger.LogInformation("Applying migrations...");
+        db.Database.Migrate();
+        logger.LogInformation("Migrations applied successfully.");
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "An error occurred while applying database migrations.");
+        // Opcional: você pode encerrar o app se a migração for essencial
+        // throw;
+    }
+}
+
 app.Run();

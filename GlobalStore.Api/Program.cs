@@ -21,24 +21,15 @@ builder.Services.AddSwaggerGen(opt =>
     opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
-builder.Services.AddOpenApi();
 
 builder.Services
     .AddApplicationServices()
     .AddRepositories();
 
-var app = builder.Build();
+var isDevelopment = builder.Environment.IsDevelopment();
 
-if (app.Environment.IsDevelopment())
+if (isDevelopment)
 {
-    app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Store Management API v1");
-        c.RoutePrefix = string.Empty;
-    });
-
     builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseInMemoryDatabase("StoreDb"));
 }
@@ -46,6 +37,18 @@ else
 {
     builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+}
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Store Management API v1");
+        c.RoutePrefix = string.Empty;
+    });
 }
 
 app.UseHttpsRedirection();

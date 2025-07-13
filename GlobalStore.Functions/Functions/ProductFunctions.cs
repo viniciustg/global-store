@@ -18,9 +18,12 @@ namespace GlobalStore.Functions.Functions
         [Function("GetProductsList")]
         public async Task<HttpResponseData> GetProductsList([HttpTrigger(AuthorizationLevel.Function, "get", Route = "products")] HttpRequestData req)
         {
-            var products = await _service.GetProductsJsonAsync();
+            var json = await _service.GetProductsJsonAsync();
+            var products = System.Text.Json.JsonSerializer.Deserialize<List<Product>>(json);
+
             var response = req.CreateResponse(HttpStatusCode.OK);
             await response.WriteAsJsonAsync(products);
+
             return response;
         }
 

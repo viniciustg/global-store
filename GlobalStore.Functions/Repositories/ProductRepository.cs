@@ -11,7 +11,7 @@ namespace GlobalStore.Functions.Repositories
 
         public ProductRepository(IConfiguration config)
         {
-            _connectionString = config.GetConnectionString("SqlConnection")!;
+            _connectionString = config["ConnectionStrings:SqlConnection"];
         }
 
         public async Task<Product?> GetByIdAsync(int id)

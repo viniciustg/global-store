@@ -1,0 +1,53 @@
+name: Deploy Azure Function - GlobalStore.Functions
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  AZURE_FUNCTIONAPP_NAME: globalstore-functions
+  AZURE_SLOT_NAME: staging
+
+jobs:
+  build-and-deploy-staging:
+    runs-on: ubuntu-latest
+    name: Build and Deploy to Staging
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore
+        run: dotnet restore ./GlobalStore.Functions/GlobalStore.Functions.csproj
+
+      - name: Build
+        run: dotnet build ./GlobalStore.Functions/GlobalStore.Functions.csproj --configuration Release --no-restore
+
+      - name: Publish
+        run: dotnet publish ./GlobalStore.Functions/GlobalStore.Functions.csproj --configuration Release --output ./publish
+
+      - name: Deploy to Azure Function App (Staging Slot)
+        uses: azure/functions-action@v1
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          slot-name: ${{ env.AZURE_SLOT_NAME }}
+          package: ./publish
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+
+  await-approval:
+    name: Approve Swap in Azure Portal
+    needs: build-and-deploy-staging
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://${{ env.AZURE_FUNCTIONAPP_NAME }}.azurewebsites.net
+    steps:
+      - name: Manual step
+        run: echo "Waiting for manual approval for swap. After approval in GitHub, perform the swap in the Azure portal."

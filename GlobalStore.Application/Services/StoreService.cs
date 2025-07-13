@@ -1,5 +1,6 @@
 ﻿using GlobalStore.Domain.Entities;
-using GlobalStore.Domain.Interfaces;
+using GlobalStore.Domain.Interfaces.Repositories;
+using GlobalStore.Domain.Interfaces.Services;
 
 namespace GlobalStore.Application.Services
 {

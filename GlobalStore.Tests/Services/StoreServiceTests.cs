@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
 using GlobalStore.Application.Services;
 using GlobalStore.Domain.Entities;
-using GlobalStore.Domain.Interfaces;
+using GlobalStore.Domain.Interfaces.Repositories;
+using GlobalStore.Domain.Interfaces.Services;
 using Moq;
 
 namespace GlobalStore.Tests.Services
@@ -18,7 +19,7 @@ namespace GlobalStore.Tests.Services
         }
 
         [Fact]
-        public async Task Given_ValidCompanyId_When_GetStoresAsync_Then_ReturnsStoresList()
+        public async Task GivenValidCompanyId_WhenGetStoresAsync_ThenReturnsStoresList()
         {
             // Arrange
             var companyId = Guid.NewGuid();
@@ -41,7 +42,7 @@ namespace GlobalStore.Tests.Services
         }
 
         [Fact]
-        public async Task Given_ValidStore_When_CreateStoreAsync_Then_ReturnsCreatedStore()
+        public async Task GivenValidStore_WhenCreateStoreAsync_ThenReturnsCreatedStore()
         {
             // Arrange
             var store = new Store { Id = Guid.NewGuid(), Name = "New Store", CompanyId = Guid.NewGuid() };
@@ -58,7 +59,7 @@ namespace GlobalStore.Tests.Services
         }
 
         [Fact]
-        public async Task Given_ValidIds_When_GetStoreAsync_Then_ReturnsStore()
+        public async Task GivenValidIds_WhenGetStoreAsync_ThenReturnsStore()
         {
             // Arrange
             var companyId = Guid.NewGuid();
@@ -77,7 +78,7 @@ namespace GlobalStore.Tests.Services
         }
 
         [Fact]
-        public async Task Given_Store_When_UpdateStoreAsync_Then_ReturnsUpdatedStore()
+        public async Task GivenStore_WhenUpdateStoreAsync_ThenReturnsUpdatedStore()
         {
             // Arrange
             var store = new Store { Id = Guid.NewGuid(), Name = "Store Updated", CompanyId = Guid.NewGuid() };
@@ -94,7 +95,7 @@ namespace GlobalStore.Tests.Services
         }
 
         [Fact]
-        public async Task Given_ValidIds_When_DeleteStoreAsync_Then_CallsRepositoryDelete()
+        public async Task GivenValidIds_WhenDeleteStoreAsync_ThenCallsRepositoryDelete()
         {
             // Arrange
             var companyId = Guid.NewGuid();

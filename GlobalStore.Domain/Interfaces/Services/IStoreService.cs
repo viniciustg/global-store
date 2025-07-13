@@ -1,6 +1,6 @@
 ﻿using GlobalStore.Domain.Entities;
 
-namespace GlobalStore.Domain.Interfaces
+namespace GlobalStore.Domain.Interfaces.Services
 {
     public interface IStoreService
     {

@@ -1,5 +1,5 @@
 ﻿using GlobalStore.Domain.Entities;
-using GlobalStore.Domain.Interfaces;
+using GlobalStore.Domain.Interfaces.Repositories;
 using GlobalStore.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,7 +46,7 @@ namespace GlobalStore.Infrastructure.Repositories
             var store = await _context.Stores
                 .FirstOrDefaultAsync(s => s.CompanyId == companyId && s.Id == storeId);
 
-            if (store != null)
+            if (store is not null)
             {
                 _context.Stores.Remove(store);
                 await _context.SaveChangesAsync();

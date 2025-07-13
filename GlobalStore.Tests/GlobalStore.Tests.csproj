@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GlobalStore.Api\GlobalStore.Api.csproj" />
     <ProjectReference Include="..\GlobalStore.Application\GlobalStore.Application.csproj" />
     <ProjectReference Include="..\GlobalStore.Domain\GlobalStore.Domain.csproj" />
   </ItemGroup>

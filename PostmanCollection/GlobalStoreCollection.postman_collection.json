@@ -1,0 +1,878 @@
+{
+	"info": {
+		"_postman_id": "7179b2c5-aa33-4a45-9529-befbcb0589de",
+		"name": "GlobalStoreCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45461171",
+		"_collection_link": "https://vinicius-6326950.postman.co/workspace/Vinicius's-Workspace~03378ab6-8a13-46b5-88d4-ae59dc302482/collection/45461171-7179b2c5-aa33-4a45-9529-befbcb0589de?action=share&source=collection_link&creator=45461171"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Company - Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"var json = pm.response.json();",
+									"pm.collectionVariables.set(\"companyId\", json.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Company 123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Company - Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Test Company 123\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/companies",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"companies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Jul 2025 22:39:08 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "https://globalstore-api-staging.azurewebsites.net/api/companies/bac996c3-0025-422e-b187-43f1449b6d16"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:cc26c0e0-da57-4eb7-996c-729c678a8f59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"bac996c3-0025-422e-b187-43f1449b6d16\",\n    \"name\": \"Test Company 123\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Company - Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"var json = pm.response.json();",
+									"pm.collectionVariables.set(\"companyId\", json.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Company 321\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/companies/{{companyId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"companies",
+								"{{companyId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Company - Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Test Company 321\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/companies/{{companyId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"companies",
+										"{{companyId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Jul 2025 22:39:17 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:cc26c0e0-da57-4eb7-996c-729c678a8f59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"bac996c3-0025-422e-b187-43f1449b6d16\",\n    \"name\": \"Test Company 321\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Company - Get All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response is not empty\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.length).to.be.above(0);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Company - Get All",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/companies",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"companies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Jul 2025 22:39:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:cc26c0e0-da57-4eb7-996c-729c678a8f59"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"fe28253b-e276-4890-a685-3485348441b4\",\n        \"name\": \"Test Company\"\n    },\n    {\n        \"id\": \"bac996c3-0025-422e-b187-43f1449b6d16\",\n        \"name\": \"Test Company 321\"\n    },\n    {\n        \"id\": \"4d56b605-3cd2-4931-9463-49a549c21b1d\",\n        \"name\": \"Test Company 321\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Company - Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/companies/{{companyId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"companies",
+								"{{companyId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Store - Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"var json = pm.response.json();",
+									"pm.collectionVariables.set(\"storeId\", json.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"name\": \"Main Store\", \r\n    \"address\": \"123 Main St\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/companies/{{companyId}}/stores",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"companies",
+								"{{companyId}}",
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Store - Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"name\": \"Main Store\", \r\n    \"address\": \"123 Main St\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/companies/{{companyId}}/stores",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"companies",
+										"{{companyId}}",
+										"stores"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Jul 2025 22:39:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "https://globalstore-api-staging.azurewebsites.net/api/companies/bac996c3-0025-422e-b187-43f1449b6d16/stores/0a473577-d105-45ae-a010-6fb84d4a4d7b"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:cc26c0e0-da57-4eb7-996c-729c678a8f59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"0a473577-d105-45ae-a010-6fb84d4a4d7b\",\n    \"name\": \"Main Store\",\n    \"address\": \"123 Main St\",\n    \"companyId\": \"bac996c3-0025-422e-b187-43f1449b6d16\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Store - Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"var json = pm.response.json();",
+									"pm.collectionVariables.set(\"storeId\", json.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"name\": \"Main Store\", \r\n    \"address\": \"123 Main St\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/companies/{{companyId}}/stores/{{storeId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"companies",
+								"{{companyId}}",
+								"stores",
+								"{{storeId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Store - Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"name\": \"Main Store\", \r\n    \"address\": \"123 Main St\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/companies/{{companyId}}/stores/{{storeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"companies",
+										"{{companyId}}",
+										"stores",
+										"{{storeId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Jul 2025 22:39:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:cc26c0e0-da57-4eb7-996c-729c678a8f59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"0a473577-d105-45ae-a010-6fb84d4a4d7b\",\n    \"name\": \"Main Store\",\n    \"address\": \"123 Main St\",\n    \"companyId\": \"bac996c3-0025-422e-b187-43f1449b6d16\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Store - Get All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response is not empty\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.length).to.be.above(0);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/companies/{{companyId}}/stores",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"companies",
+								"{{companyId}}",
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Store - Get All",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/companies/{{companyId}}/stores",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"companies",
+										"{{companyId}}",
+										"stores"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Jul 2025 22:40:04 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:cc26c0e0-da57-4eb7-996c-729c678a8f59"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"0a473577-d105-45ae-a010-6fb84d4a4d7b\",\n        \"name\": \"Main Store\",\n        \"address\": \"123 Main St\",\n        \"companyId\": \"bac996c3-0025-422e-b187-43f1449b6d16\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Store - Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/companies/{{companyId}}/stores/{{storeId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"companies",
+								"{{companyId}}",
+								"stores",
+								"{{storeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products (Function)",
+			"item": [
+				{
+					"name": "Product - Get List Products",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_function}}/api/products",
+							"host": [
+								"{{base_url_function}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Product - Get List Products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_function}}/api/products",
+									"host": [
+										"{{base_url_function}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Jul 2025 22:30:25 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"Id\": 1,\n        \"CompanyId\": \"f1a8d3e7-0a0b-4d6e-b2c4-1e0a6fcb58f1\",\n        \"StoreId\": \"c7b2b4f6-3e9f-4e4a-8cde-28de9f8a4ef3\",\n        \"Name\": \"Teclado Mecânico RGB\",\n        \"Description\": \"Teclado com switches azuis e iluminação RGB customizável\",\n        \"Price\": 349.9,\n        \"CreatedAt\": \"2025-07-13T21:28:34.627\",\n        \"UpdatedAt\": null\n    },\n    {\n        \"Id\": 2,\n        \"CompanyId\": \"f1a8d3e7-0a0b-4d6e-b2c4-1e0a6fcb58f1\",\n        \"StoreId\": \"c7b2b4f6-3e9f-4e4a-8cde-28de9f8a4ef3\",\n        \"Name\": \"Teclado Mecânico\",\n        \"Description\": \"Teclado com switches RGB customizável\",\n        \"Price\": 349.9,\n        \"CreatedAt\": \"2025-07-13T21:32:33.227\",\n        \"UpdatedAt\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Product - Create Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"companyId\": \"f1a8d3e7-0a0b-4d6e-b2c4-1e0a6fcb58f1\",\r\n  \"storeId\": \"c7b2b4f6-3e9f-4e4a-8cde-28de9f8a4ef3\",\r\n  \"name\": \"Teclado Mecânico azul\",\r\n  \"description\": \"Teclado com switches azuis e iluminação RGB customizável\",\r\n  \"price\": 349.90,\r\n  \"createdAt\": \"2024-07-01T10:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_function}}/api/products",
+							"host": [
+								"{{base_url_function}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Product - Create Product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"companyId\": \"f1a8d3e7-0a0b-4d6e-b2c4-1e0a6fcb58f1\",\r\n  \"storeId\": \"c7b2b4f6-3e9f-4e4a-8cde-28de9f8a4ef3\",\r\n  \"name\": \"Teclado Mecânico azul\",\r\n  \"description\": \"Teclado com switches azuis e iluminação RGB customizável\",\r\n  \"price\": 349.90,\r\n  \"createdAt\": \"2024-07-01T10:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_function}}/api/products",
+									"host": [
+										"{{base_url_function}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Jul 2025 22:39:42 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:26fb967c-ad19-4e4b-adea-c5ae8f267aea"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"Id\": 1,\n        \"CompanyId\": \"f1a8d3e7-0a0b-4d6e-b2c4-1e0a6fcb58f1\",\n        \"StoreId\": \"c7b2b4f6-3e9f-4e4a-8cde-28de9f8a4ef3\",\n        \"Name\": \"Teclado Mecânico RGB\",\n        \"Description\": \"Teclado com switches azuis e iluminação RGB customizável\",\n        \"Price\": 349.9,\n        \"CreatedAt\": \"2025-07-13T21:28:34.627\",\n        \"UpdatedAt\": null\n    },\n    {\n        \"Id\": 2,\n        \"CompanyId\": \"f1a8d3e7-0a0b-4d6e-b2c4-1e0a6fcb58f1\",\n        \"StoreId\": \"c7b2b4f6-3e9f-4e4a-8cde-28de9f8a4ef3\",\n        \"Name\": \"Teclado Mecânico\",\n        \"Description\": \"Teclado com switches RGB customizável\",\n        \"Price\": 349.9,\n        \"CreatedAt\": \"2025-07-13T21:32:33.227\",\n        \"UpdatedAt\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Product - Update Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"companyId\": \"f1a8d3e7-0a0b-4d6e-b2c4-1e0a6fcb58f1\",\r\n  \"storeId\": \"c7b2b4f6-3e9f-4e4a-8cde-28de9f8a4ef3\",\r\n  \"name\": \"Teclado Mecânico RGB\",\r\n  \"description\": \"Teclado com switches azuis e iluminação RGB customizável\",\r\n  \"price\": 349.90,\r\n  \"createdAt\": \"2024-07-01T10:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_function}}/api/products/{{productId}}",
+							"host": [
+								"{{base_url_function}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{productId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product - Delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"companyId\": \"f1a8d3e7-0a0b-4d6e-b2c4-1e0a6fcb58f1\",\r\n  \"storeId\": \"c7b2b4f6-3e9f-4e4a-8cde-28de9f8a4ef3\",\r\n  \"name\": \"Teclado Mecânico RGB\",\r\n  \"description\": \"Teclado com switches azuis e iluminação RGB customizável\",\r\n  \"price\": 349.90,\r\n  \"createdAt\": \"2024-07-01T10:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_function}}/api/products/{{productId}}",
+							"host": [
+								"{{base_url_function}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{productId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "companyId",
+			"value": ""
+		},
+		{
+			"key": "storeId",
+			"value": ""
+		}
+	]
+}

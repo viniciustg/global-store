@@ -27,7 +27,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish ./GlobalStore.Api/GlobalStore.Api.csproj -c Release
+        run: dotnet publish ./GlobalStore.Api/GlobalStore.Api.csproj -c Release -o ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -63,5 +63,5 @@ jobs:
         with:
           app-name: 'globalstore-api'
           slot-name: 'staging'
-          package: .
+          package: ./publish
           

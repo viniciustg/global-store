@@ -40,6 +40,9 @@ The `GlobalStore` system was designed to support a globalized and multi-tenant e
 ## 📮 API Endpoints
 Examples available via Swagger.
 https://globalstore-api-staging.azurewebsites.net/index.html
+<img width="1607" height="898" alt="image" src="https://github.com/user-attachments/assets/80cf1b5b-7532-4e77-8d6b-620f1651e9d3" />
+
+
 
 ## 🧪 Testing
 Tests were implemented using:
@@ -48,4 +51,14 @@ Tests were implemented using:
 - Moq
 - Test project: GlobalStore.Tests
 
-  
+## Azure App Service
+<img width="627" height="323" alt="image" src="https://github.com/user-attachments/assets/4ca96817-63be-4e90-a5b2-c0c5594375de" />
+<img width="1309" height="174" alt="image" src="https://github.com/user-attachments/assets/a4b9c830-92b0-43e4-a721-af82daf682dc" />
+
+## Azure Function
+<img width="568" height="292" alt="image" src="https://github.com/user-attachments/assets/0e7536d6-45a3-4794-9802-c4341a9df0e7" />
+<img width="1361" height="459" alt="image" src="https://github.com/user-attachments/assets/36525d9d-3f65-45b3-8e60-cc8ff6d045e8" />
+
+## Azure SQL
+<img width="1085" height="660" alt="image" src="https://github.com/user-attachments/assets/b3917b58-a3b9-4e5d-94b5-4a8d0487f075" />
+

@@ -59,6 +59,6 @@ Tests were implemented using:
 <img width="568" height="292" alt="image" src="https://github.com/user-attachments/assets/0e7536d6-45a3-4794-9802-c4341a9df0e7" />
 <img width="1361" height="459" alt="image" src="https://github.com/user-attachments/assets/36525d9d-3f65-45b3-8e60-cc8ff6d045e8" />
 
-## Azure SQL
+## Azure SQL (files in GlobalStore.Functions/Scripts)
 <img width="1085" height="660" alt="image" src="https://github.com/user-attachments/assets/b3917b58-a3b9-4e5d-94b5-4a8d0487f075" />
 
